@@ -9,12 +9,22 @@
 
 //Possible solution return str.split('').reverse().join('') 
 function reverse(str) {
-    let result = []
-    for (let i = str.length; i >= 0; i--) {
-        result.push(str[i]);
-    }
-    //With join you can return an string array to a string
-    return result.join('');
+    return str.split('').reduce((rev, char) => char + rev, '')
 }
 
 module.exports = reverse;
+
+//Not Recommended!!! 
+// let result = []
+// for (let i = str.length; i >= 0; i--) {
+//     result.push(str[i]);
+// }
+// //With join you can return an string array to a string
+// return result.join('');
+
+// let reversed = '';
+
+// for (let character of str) {
+//     reversed = character + reversed;
+// }
+// return reversed;
