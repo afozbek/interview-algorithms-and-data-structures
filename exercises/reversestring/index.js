@@ -17,5 +17,4 @@ function reverse(str) {
     return result.join('');
 }
 
-
 module.exports = reverse;
