@@ -2,7 +2,7 @@
   "name": "algocasts",
   "version": "1.0.0",
   "description": "",
-  "main": "exercises/anagrams/index.js",
+  "main": "exercises/capitalize/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
