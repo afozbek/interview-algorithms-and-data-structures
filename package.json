@@ -1,0 +1,19 @@
+{
+  "name": "algocasts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercises/chunk/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afozbek/InterviewAlgorithms-Solutions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afozbek/InterviewAlgorithms-Solutions/issues"
+  },
+  "homepage": "https://github.com/afozbek/InterviewAlgorithms-Solutions#readme"
+}
