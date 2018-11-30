@@ -8,30 +8,38 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-//JavaScript RegExp with replace
-//First we replace the string with no white space and no other characters.
-//Then lower the string and compare the strings by its keys
+
 function anagrams(stringA, stringB) {
-    let obj1 = buildCharMap(stringA);
-    let obj2 = buildCharMap(stringB);
-    //Object.keys returns an array of keys
-    if (Object.keys(obj1).length === Object.keys(obj2).length) {
-        for (let j in obj1) {
-            if (obj1[j] !== obj2[j]) {
-                return false;
-            }
-        }
+    const arrA = stringA.replace(/[^\w]/g, '').toLowerCase().split('');
+    const arrB = stringB.replace(/[^\w]/g, '').toLowerCase().split('');
+    if (arrA.sort().join('') === arrB.sort().join(''))
         return true;
-    }
     return false;
 }
 
-function buildCharMap(str) {
-    const charMap = {};
-    for (let char of str.replace(/[^\w]/g, '').toLowerCase())
-        charMap[char] = charMap[char] + 1 || 1;
-    return charMap;
-}
-
-// anagrams('MERhaba *!', 'habamer !*');
 module.exports = anagrams;
+
+//JavaScript RegExp with replace
+//First we replace the string with no white space and no other characters.
+//Then lower the string and compare the strings by its keys
+// function anagrams(stringA, stringB) {
+//     let obj1 = buildCharMap(stringA);
+//     let obj2 = buildCharMap(stringB);
+//     //Object.keys returns an array of keys
+//     if (Object.keys(obj1).length === Object.keys(obj2).length) {
+//         for (let j in obj1) {
+//             if (obj1[j] !== obj2[j]) {
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+//     return false;
+// }
+
+// function buildCharMap(str) {
+//     const charMap = {};
+//     for (let char of str.replace(/[^\w]/g, '').toLowerCase())
+//         charMap[char] = charMap[char] + 1 || 1;
+//     return charMap;
+// }
