@@ -2,7 +2,7 @@
   "name": "algocasts",
   "version": "1.0.0",
   "description": "",
-  "main": "exercises/chunk/index.js",
+  "main": "exercises/anagrams/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

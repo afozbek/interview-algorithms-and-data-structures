@@ -9,6 +9,8 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 //array.slice(st, fn) method copy some elements from index to given index
+//If we have slice(2, 4) and our array.length = 3 
+//we only get array[2] and there will be no error perfect!
 function chunk(array, size) {
     const myArr = [];
     let index = 0;
@@ -24,7 +26,7 @@ function chunk(array, size) {
 module.exports = chunk;
 
 //Deneme1
-// let myArr = []
+//      let myArr = []
 //     let subArr = []
 //     let a = 0;
 //     while (array.length < size) {
@@ -40,17 +42,20 @@ module.exports = chunk;
 //     return myArr;
 
 //---
-// const chunked = [];
+//Complex ..
+// function chunk(array, size) {
+//     const chunked = [];
 
-// for (let element of array) {
-//     const last = chunked[chunked.length - 1];
-//     console.log(last);
-//     if (!last || last.length === size) {
-//         chunked.push([element]);
+//     for (let element of array) {
+//         const last = chunked[chunked.length - 1];
+//         console.log(last);
+//         if (!last || last.length === size) {
+//             chunked.push([element]);
+//         }
+//         else {
+//             last.push(element);
+//         }
+//         console.log(chunked);
 //     }
-//     else {
-//         last.push(element);
-//     }
-//     console.log(chunked);
+//     return chunked;
 // }
-// return chunked;
