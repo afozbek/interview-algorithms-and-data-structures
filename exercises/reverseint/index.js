@@ -8,6 +8,14 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
-
+//My solution 
+function reverseInt(n) {
+    const s = Math.sign(n);
+    if (s == 1 || s == 0) return parseInt(n.toString().split('').reverse().join(''));
+    else {
+        n = n * -1
+        return parseInt(n.toString().split('').reverse().join('')) * -1;
+    }
+}
 module.exports = reverseInt;
+
