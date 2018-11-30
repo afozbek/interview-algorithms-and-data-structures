@@ -12,13 +12,9 @@
 //First we replace the string with no white space and no other characters.
 //Then lower the string and compare the strings by its keys
 function anagrams(stringA, stringB) {
-    let obj1 = {}
-    let obj2 = {}
-    for (let i of stringA.replace(/[^\w]/g, '').toLowerCase())
-        obj1[i] = obj1[i] + 1 || 1;
-    for (let i of stringB.replace(/[^\w]/g, '').toLowerCase())
-        obj2[i] = obj2[i] + 1 || 1;
-
+    let obj1 = buildCharMap(stringA);
+    let obj2 = buildCharMap(stringB);
+    //Object.keys returns an array of keys
     if (Object.keys(obj1).length === Object.keys(obj2).length) {
         for (let j in obj1) {
             if (obj1[j] !== obj2[j]) {
@@ -28,6 +24,13 @@ function anagrams(stringA, stringB) {
         return true;
     }
     return false;
+}
+
+function buildCharMap(str) {
+    const charMap = {};
+    for (let char of str.replace(/[^\w]/g, '').toLowerCase())
+        charMap[char] = charMap[char] + 1 || 1;
+    return charMap;
 }
 
 // anagrams('MERhaba *!', 'habamer !*');
