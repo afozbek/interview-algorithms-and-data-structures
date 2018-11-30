@@ -10,11 +10,12 @@
 
 
 function anagrams(stringA, stringB) {
-    const arrA = stringA.replace(/[^\w]/g, '').toLowerCase().split('');
-    const arrB = stringB.replace(/[^\w]/g, '').toLowerCase().split('');
-    if (arrA.sort().join('') === arrB.sort().join(''))
-        return true;
-    return false;
+    const arrA = doStuff(stringA);
+    const arrB = doStuff(stringB);
+    return arrA === arrB;
+}
+function doStuff(str) {
+    return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('')
 }
 
 module.exports = anagrams;
