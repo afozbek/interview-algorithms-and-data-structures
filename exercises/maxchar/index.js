@@ -7,17 +7,17 @@
 
 //MySolution
 function maxChar(str) {
-    let splitted = str.split('');
-    let max = 0; let maxIndex;
-    for (let char of splitted) {
-        let count = splitted.reduce((n, val) => {
-            return n + (val === char)
-        })
-        if (count > max) {
-            max = count;
-            maxIndex = char;
+    let charMap = {};
+    let max = 0;
+    let maxChar = '';
+
+    for (let char of str)
+        charMap[char] = charMap[char] + 1 || 1;
+    for (let char in charMap)
+        if (charMap[char] > max) {
+            max = charMap[char];
+            maxChar = char;
         }
-    }
-    return str[maxIndex];
+    return maxChar;
 }
 module.exports = maxChar;
