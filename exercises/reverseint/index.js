@@ -8,14 +8,19 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-//My solution 
+//Much cleaner Math.sign(number) returns 0 -1 or 1
 function reverseInt(n) {
-    const s = Math.sign(n);
-    if (s == 1 || s == 0) return parseInt(n.toString().split('').reverse().join(''));
-    else {
-        n = n * -1
-        return parseInt(n.toString().split('').reverse().join('')) * -1;
-    }
+    const reversed = n.toString().split('').reverse().join('')
+    return parseInt(reversed) * Math.sign(n);
 }
 module.exports = reverseInt;
 
+//My solution 
+// function reverseInt(n) {
+//     const s = Math.sign(n);
+//     if (s == 1 || s == 0) return parseInt(n.toString().split('').reverse().join(''));
+//     else {
+//         n = n * -1
+//         return parseInt(n.toString().split('').reverse().join('')) * -1;
+//     }
+// }
