@@ -20,24 +20,24 @@ function matrix(n) {
     results = createEmptyArray(n);
     let counter = 1;
     let start_col = 0, start_row = 0
-    let end_col = n, end_row = n;
+    let end_col = n - 1, end_row = n - 1;
     while (start_col <= end_col && start_row <= end_row) {
-        for (let i = start_col; i < end_col; i++) {
+        for (let i = start_col; i <= end_col; i++) {
             results[start_row][i] = counter;
             counter++;
         }
         start_row++;
-        for (let i = start_row; i < end_row; i++) {
-            results[i][end_col - 1] = counter;
-            counter++;
-        }
-        end_row--;
-        for (let j = end_col - 2; j >= start_col; j--) {
-            results[end_row][j] = counter;
+        for (let i = start_row; i <= end_row; i++) {
+            results[i][end_col] = counter;
             counter++;
         }
         end_col--;
-        for (let j = end_row - 1; j >= start_row; j--) {
+        for (let j = end_col; j >= start_col; j--) {
+            results[end_row][j] = counter;
+            counter++;
+        }
+        end_row--;
+        for (let j = end_row; j >= start_row; j--) {
             results[j][start_col] = counter;
             counter++;
         }
@@ -46,7 +46,6 @@ function matrix(n) {
     return results;
 }
 
-//Creates an empty array based on the input---> inputXinput matrix
 function createEmptyArray(num) {
     let arr = []
     for (let i = 0; i < num; i++) {
@@ -58,4 +57,5 @@ function createEmptyArray(num) {
     }
     return arr;
 }
+console.log(matrix(4));
 module.exports = matrix;
