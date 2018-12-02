@@ -13,7 +13,6 @@ class Node {
         this.data = data;
         this.next = next;
     }
-
 }
 
 class LinkedList {
@@ -37,12 +36,47 @@ class LinkedList {
     getFirst() {
         return this.head;
     }
+    //Some Differences!
     getLast() {
         let node = this.head;
+        if (!node) {
+            return null;
+        }
         while (node.next) {
             node = node.next;
         }
         return node;
+    }
+    clear() {
+        this.head = null;
+    }
+    removeFirst() {
+        if (!this.head) {
+            return;
+        }
+        this.head = this.head.next;
+    }
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+    insertLast(data) {
+        if (!this.head) {
+            this.head = new Node(data);
+        }
+        this.getLast().next = new Node(data);
     }
 }
 
