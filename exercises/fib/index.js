@@ -8,20 +8,29 @@
 // Example:
 //   fib(4) === 3
 
+
+/*Time Complexity with recursive 2^n*/
 function fib(n) {
-    let myFib = createFib(n);
-    return myFib[n];
-}
-function createFib(num) {
-    let fibArr = [0, 1];
-    for (let i = 2; i < num + 1; i++) {
-        let value = fibArr[i - 1] + fibArr[i - 2];
-        fibArr.push(value);
+    if (n < 2) {
+        return n;
     }
-    return fibArr;
+    return fib(n - 1) + fib(n - 2);
 }
 
-console.log(fib(11)); //output:89
+console.log(fib(1000)); //output:233
 module.exports = fib;
 
 
+/*TIME COMPLEXITY --> n^2*/
+// function fib(n) {
+//     let myFib = createFib(n);
+//     return myFib[n];
+// }
+// function createFib(num) {
+//     let fibArr = [0, 1];
+//     for (let i = 2; i < num + 1; i++) {
+//         let value = fibArr[i - 1] + fibArr[i - 2];
+//         fibArr.push(value);
+//     }
+//     return fibArr;
+// }
