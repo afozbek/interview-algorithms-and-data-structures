@@ -78,6 +78,33 @@ class LinkedList {
         }
         this.getLast().next = new Node(data);
     }
+    getAt(index) {
+        let counter = -1; //starting index
+        let node = this.head;
+        while (node) {
+            if (counter === index) { return node; }
+            counter++;
+            node = node.next;
+        }
+        return null;
+    }
+    //my sol
+    removeAt(index) {
+        if (!this.head)
+            return;
+        if (index === 0) { this.head = this.head.next; return; }
+        if (this.getAt(index - 1)) {
+            let node = this.getAt(index - 1);
+            node.next = this.getAt(index + 1);
+        }
+    }
 }
+// let l = new LinkedList();
+// l.insertLast(1);
+// l.insertLast(2);
+// l.insertLast(3);
+// l.insertLast(4);
+
+// l.getAt(10);
 
 module.exports = { Node, LinkedList };
