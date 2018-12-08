@@ -38,6 +38,16 @@ class Tree {
             fn(node);
         }
     }
+    traverseDF(fn) {
+        let array = [this.root];
+        while (array.length) {
+            const node = array.shift();
+            //Take the every elements in the array and push it
+            array.unshift(...node.children);
+            fn(node);
+        }
+
+    }
 }
 
 module.exports = { Tree, Node };
