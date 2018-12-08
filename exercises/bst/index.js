@@ -28,6 +28,17 @@ class Node {
             this.right = new Node(data);
         }
     }
+    contains(data) {
+        if (data === this.data) {
+            return this;
+        }
+        if (this.data < data && this.right) {
+            return this.right.contains(data);
+        } else if (this.data > data && this.left) {
+            return this.left.contains(data);
+        }
+        return null;
+    }
 }
 
 module.exports = Node;
