@@ -29,6 +29,7 @@ class Tree {
     constructor() {
         this.root = null;
     }
+    //Breadth First
     traverseBF(fn) {
         let array = [this.root];
         while (array.length) {
@@ -38,6 +39,7 @@ class Tree {
             fn(node);
         }
     }
+    //Depth First
     traverseDF(fn) {
         let array = [this.root];
         while (array.length) {
