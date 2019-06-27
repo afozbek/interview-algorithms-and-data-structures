@@ -21,7 +21,6 @@ const transformBinary = number => {
  * @returns {Array} returns gaps if exist
  */
 const findGaps = binaryString => {
-  //   let regex = /10+1/g;
   let regex = /1{0,1}0+1/g;
   let gaps = binaryString.match(regex);
 
