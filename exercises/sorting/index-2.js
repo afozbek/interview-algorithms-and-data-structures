@@ -1,3 +1,10 @@
+const { generateRandomNumbers } = require("./utils");
+
+const smallArr = generateRandomNumbers(10);
+const bigArr = generateRandomNumbers(1000);
+
+console.log("TCL: smallArr", smallArr);
+
 const bubbleSort = arr => {
     for (let i = 0; i < arr.length - 1; i++) {
         let isSwapped = false;
@@ -34,4 +41,4 @@ const selectionSort = arr => {
     return arr;
 };
 
-console.log(selectionSort([5, 3, 6, 1, 8, 9]));
+console.log("TCL: selectionSorted", selectionSort(smallArr));
