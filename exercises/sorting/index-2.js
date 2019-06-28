@@ -16,4 +16,22 @@ const bubbleSort = arr => {
     return arr;
 };
 
+const selectionSort = arr => {
+    for (let i = 0, n = arr.length; i < n; i++) {
+        let smallIndex = i;
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[smallIndex]) {
+                smallIndex = j;
+            }
+        }
+        // i ile smallIndex yer değiştiriyor
+        if (smallIndex !== i) {
+            let smallNumber = arr[smallIndex];
+            arr[smallIndex] = arr[i];
+            arr[i] = smallNumber;
+        }
+    }
+    return arr;
+};
+
 console.log(selectionSort([5, 3, 6, 1, 8, 9]));
