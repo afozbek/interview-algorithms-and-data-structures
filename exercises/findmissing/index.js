@@ -4,6 +4,7 @@
  *
  * @param {Array} A An array of numbers
  */
+// O(n)
 function solution(A) {
     // write your code in JavaScript (Node.js 8.9.4)
     const numberObj = {};
