@@ -25,6 +25,7 @@
  * @param {Number} Y
  * @param {Number} D
  */
+// O(1)
 function solution(X, Y, D) {
     if (X === Y) {
         return 0;
