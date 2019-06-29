@@ -9,7 +9,7 @@ const checkRunTime = (func, input) => {
 const generateRandomNumbers = value => {
     let arr = [];
     for (let i = 0; i < value; i++) {
-        let number = Math.floor((Math.random() + 5) * 10);
+        let number = Math.floor(Math.random() * 100);
         arr.push(number);
     }
     return arr;

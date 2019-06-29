@@ -41,4 +41,28 @@ const selectionSort = arr => {
     return arr;
 };
 
-console.log("TCL: selectionSorted", selectionSort(smallArr));
+const mergeSort = arr => {
+    if (arr.length === 1) return arr;
+    let center = Math.floor(arr.length / 2);
+    let firstHalf = arr.slice(0, center);
+    let secondHalf = arr.slice(center);
+    return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+};
+
+const merge = (leftArr, rightArr) => {
+    const results = [];
+    let i = 0;
+    // Loop through arrays and sort them according to order
+    while (leftArr.length && rightArr.length) {
+        if (leftArr[i] <= rightArr[i]) {
+            results.push(leftArr.shift());
+        } else {
+            results.push(rightArr.shift());
+        }
+    }
+    // ıf one element remaining in left or right we add to end of the arr
+    // Beacuse it is the biggest number
+    return [...results, ...leftArr, ...rightArr];
+};
+
+console.log("TCL: mergeSorted", mergeSort(smallArr));
