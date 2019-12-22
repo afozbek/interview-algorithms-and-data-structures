@@ -37,7 +37,7 @@ class LinkedList {
 
     node.next = newNode;
     this.tail = newNode;
-    this.length = this.length + 1;
+    this.length += 1;
 
     return this.head;
   }
@@ -50,7 +50,7 @@ class LinkedList {
       newNode.next = this.head;
     }
 
-    this.length = this.length + 1;
+    this.length += 1;
 
     return newNode;
   }
@@ -84,11 +84,12 @@ class LinkedList {
       }
     }
 
-    this.length = this.length + 1;
+    this.length += 1;
 
     return head;
   }
 
+  // Insert node at the end of the linked list
   insertNode(data) {
     const node = new Node(data);
 
@@ -100,18 +101,19 @@ class LinkedList {
       this.tail = this.tail.next;
     }
 
-    this.length = this.length + 1;
+    this.length += 1;
 
     return this.head;
   }
 
+  // https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem
   deleteNode(position) {
     let head = this.head;
 
     if (position === 0) {
       if (head.next !== null) {
         head = head.next;
-        this.length = this.length - 1;
+        this.length -= 1;
       }
 
       else {
@@ -208,6 +210,7 @@ class LinkedList {
     return retrievedNode.data;
   }
 
+  // https://www.hackerrank.com/challenges/delete-duplicate-value-nodes-from-a-sorted-linked-list
   removeDuplicates() {
     let node = this.head;
     let values = {};
@@ -219,6 +222,7 @@ class LinkedList {
 
       if (values[data]) {
         prevNode.next = node.next;
+        this.length--;
       } else {
         values[data] = true;
 
