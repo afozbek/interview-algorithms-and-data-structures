@@ -183,6 +183,30 @@ class LinkedList {
 
     return prev;
   }
+
+  // https://www.hackerrank.com/challenges/get-the-value-of-the-node-at-a-specific-position-from-the-tail
+  getNode(positionFromTail) {
+    let head = this.head;
+
+    if (!head) return null;
+
+    let nodes = {};
+    let counter = 0;
+
+    let node = head;
+    while (node) {
+      nodes[counter] = node;
+
+      node = node.next;
+      counter++
+    }
+
+    counter--;
+
+    let retrievedNode = nodes[counter - positionFromTail];
+
+    return retrievedNode.data;
+  }
 }
 
 
@@ -201,8 +225,8 @@ function main() {
   ll2.insertNode(6)
   ll2.insertNode(7)
 
-  let result = util.mergeLists(ll1.head, ll2.head);
-  console.log(JSON.stringify(result))
+  let result = ll1.getNode(1)
+  console.log(result);
 }
 
 main();
