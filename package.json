@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/afozbek/interview-algorithms-and-data-structures/issues"
   },
-  "homepage": "https://github.com/afozbek/interview-algorithms-and-data-structures#readme"
+  "homepage": "https://github.com/afozbek/interview-algorithms-and-data-structures#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }
