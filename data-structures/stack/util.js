@@ -2,11 +2,8 @@ const Node = require("./node");
 
 class Util {
   // https://www.hackerrank.com/challenges/compare-two-linked-lists/problem
-  compareLists(l1, l2) {
-    if (l1 && !l2 || !l1 && l2 || l1.data !== l2.data) return 0;
-
-    let head1 = l1;
-    let head2 = l2;
+  compareLists(head1, head2) {
+    if (head1 && !head2 || !head1 && head2 || head1.data !== head2.data) return 0;
 
     while (head1) {
       if (!head1.next && !head2.next) return 1;
