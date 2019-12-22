@@ -201,8 +201,8 @@ function main() {
   ll2.insertNode(6)
   ll2.insertNode(7)
 
-  let result = util.mergeLists(ll1, ll2);
-  console.log(result)
+  let result = util.mergeLists(ll1.head, ll2.head);
+  console.log(JSON.stringify(result))
 }
 
 main();

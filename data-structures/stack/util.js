@@ -30,7 +30,7 @@ class Util {
     let tail = headNode;
 
     while (true) {
-      if (!node1 || !node2) { tail.next = node1 || node2; break; }
+      if (!head1 || !head2) { tail.next = head1 || head2; break; }
 
       if (head1.data <= head2.data) {
         tail.next = head1;
