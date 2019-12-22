@@ -207,6 +207,29 @@ class LinkedList {
 
     return retrievedNode.data;
   }
+
+  removeDuplicates() {
+    let node = this.head;
+    let values = {};
+    if (!node) return null;
+
+    let prevNode = null;
+    while (node) {
+      let data = node.data;
+
+      if (values[data]) {
+        prevNode.next = node.next;
+      } else {
+        values[data] = true;
+
+        prevNode = node;
+      }
+
+      node = node.next;
+    }
+
+    return this.head;
+  }
 }
 
 
@@ -216,17 +239,22 @@ function main() {
   const ll1 = new LinkedList();
   const ll2 = new LinkedList();
 
+  ll1.insertNode(1)
   ll1.insertNode(3)
+  ll1.insertNode(3)
+  ll1.insertNode(4)
   ll1.insertNode(5)
-  ll1.insertNode(10)
+  ll1.insertNode(5)
+  ll1.insertNode(7)
+  ll1.insertNode(9)
 
   ll2.insertNode(1)
   ll2.insertNode(2)
   ll2.insertNode(6)
   ll2.insertNode(7)
 
-  let result = ll1.getNode(1)
-  console.log(result);
+  let result = ll1.removeDuplicates(ll1.head)
+  console.log(JSON.stringify(result));
 }
 
 main();
