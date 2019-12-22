@@ -1,19 +1,22 @@
 {
-  "name": "algocasts",
+  "author": "Abdullah Furkan ÖZBEK",
+  "name": "algorithms-and-data-structures",
+  "contributors": [
+    "https://github.com/afozbek"
+  ],
   "version": "1.0.0",
-  "description": "",
+  "description": "In this repository, I solve some common problems using javascript and maybe Java programming language",
   "main": "exercises/linkedlist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afozbek/InterviewAlgorithms-Solutions.git"
+    "url": "git+https://github.com/afozbek/interview-algorithms-and-data-structures"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/afozbek/InterviewAlgorithms-Solutions/issues"
+    "url": "https://github.com/afozbek/interview-algorithms-and-data-structures/issues"
   },
-  "homepage": "https://github.com/afozbek/InterviewAlgorithms-Solutions#readme"
+  "homepage": "https://github.com/afozbek/interview-algorithms-and-data-structures#readme"
 }
