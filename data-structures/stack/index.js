@@ -8,9 +8,14 @@ class LinkedList {
     this.length = 0;
   }
 
-  // https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list
-  printLinkedList(head) {
+  reset() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
 
+  // https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list
+  printLinkedList() {
     let n = this.head;
 
     while (n) {
@@ -256,9 +261,8 @@ function main() {
   ll2.insertNode(2)
   ll2.insertNode(6)
   ll2.insertNode(7)
-
-  let result = ll1.removeDuplicates(ll1.head)
-  console.log(JSON.stringify(result));
 }
 
 main();
+
+module.exports = LinkedList;
