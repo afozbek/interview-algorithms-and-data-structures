@@ -239,6 +239,24 @@ class LinkedList {
 
     return this.head;
   }
+
+  // https://www.hackerrank.com/challenges/detect-whether-a-linked-list-contains-a-cycle/problem
+  hasCycle() {
+    let head = this.head;
+    if(!head) return 0;
+
+    while(head) {
+      if(head.visited){
+        return 1;
+      } else {
+        head.visited = true;
+      }
+
+      head = head.next;
+    }
+
+    return 0;
+  }
 }
 
 
@@ -248,19 +266,16 @@ function main() {
   const ll1 = new LinkedList();
   const ll2 = new LinkedList();
 
-  ll1.insertNode(1)
-  ll1.insertNode(3)
-  ll1.insertNode(3)
-  ll1.insertNode(4)
-  ll1.insertNode(5)
-  ll1.insertNode(5)
-  ll1.insertNode(7)
-  ll1.insertNode(9)
+  let nodeA = new Node(0);
+  let nodeB = nodeA.next = new Node(1);
+  let nodeC = nodeB.next = new Node(3);
+  let nodeD = nodeC.next = new Node(5);
 
-  ll2.insertNode(1)
-  ll2.insertNode(2)
-  ll2.insertNode(6)
-  ll2.insertNode(7)
+  nodeD.next = nodeA;
+
+  ll1.head = nodeA;
+
+  console.log(ll1.hasCycle());
 }
 
 main();
