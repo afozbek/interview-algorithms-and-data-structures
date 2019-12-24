@@ -1,5 +1,6 @@
 const LinkedList = require(".")
 const Util = require("./util")
+const Node = require("./node");
 
 const util = new Util();
 
@@ -122,4 +123,23 @@ test("4-Comparing Linked Lists --> Not Equal Values", () => {
   expect(util.compareLists(ll1.head, ll2.head)).toBe(0);
 });
 
-// Will be added
+test("5-Cycle Testing-Falsy", () => {
+  ll1.insertNode(1)
+  ll1.insertNode(2)
+  ll1.insertNode(3)
+
+  expect(ll1.hasCycle()).toBe(0);
+});
+
+test("5-Cycle Testing-Truthy", () => {
+  let nodeA = new Node(0);
+  let nodeB = nodeA.next = new Node(1);
+  let nodeC = nodeB.next = new Node(3);
+  let nodeD = nodeC.next = new Node(5);
+
+  nodeD.next = nodeA;
+
+  ll1.head = nodeA;
+
+  expect(ll1.hasCycle()).toBe(1);
+});
