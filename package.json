@@ -8,7 +8,8 @@
   "description": "In this repository, I solve some common problems using javascript and maybe Java programming language",
   "main": "exercises/linkedlist/index.js",
   "scripts": {
-    "test": "jest"
+    "test-all": "jest",
+    "test": "./test.sh"
   },
   "repository": {
     "type": "git",
