@@ -2,8 +2,9 @@
 
 node_modules
 
+.env
 
-
+test.sh
 
 # Created by https://www.gitignore.io/api/intellij+all
 # Edit at https://www.gitignore.io/?templates=intellij+all
