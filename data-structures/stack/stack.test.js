@@ -112,7 +112,7 @@ test("4-Comparing Linked Lists --> Equal values", () => {
   expect(util.compareLists(ll1.head, ll2.head)).toBe(1);
 });
 
-test("4-Comparing Linked Lists --> Not Equal Values", () => {
+test("5-Comparing Linked Lists --> Not Equal Values", () => {
   ll1.insertNode(1)
   ll1.insertNode(2)
   ll1.insertNode(3)
@@ -123,7 +123,7 @@ test("4-Comparing Linked Lists --> Not Equal Values", () => {
   expect(util.compareLists(ll1.head, ll2.head)).toBe(0);
 });
 
-test("5-Cycle Testing-Falsy", () => {
+test("6-Cycle Testing-Falsy", () => {
   ll1.insertNode(1)
   ll1.insertNode(2)
   ll1.insertNode(3)
@@ -131,7 +131,7 @@ test("5-Cycle Testing-Falsy", () => {
   expect(ll1.hasCycle()).toBe(0);
 });
 
-test("5-Cycle Testing-Truthy", () => {
+test("7-Cycle Testing-Truthy", () => {
   let nodeA = new Node(0);
   let nodeB = nodeA.next = new Node(1);
   let nodeC = nodeB.next = new Node(3);
@@ -144,7 +144,7 @@ test("5-Cycle Testing-Truthy", () => {
   expect(ll1.hasCycle()).toBe(1);
 });
 
-test("6-Find Merge Node-1", () => {
+test("8-Find Merge Node-1", () => {
   let nodeA = new Node(0);
   let nodeB = nodeA.next = new Node(3);
   let nodeC = nodeB.next = new Node(5);
@@ -158,7 +158,7 @@ test("6-Find Merge Node-1", () => {
   expect(util.findMergeNode(nodeA, nodeE)).toBe(5);
 });
 
-test("6-Find Merge Node-2", () => {
+test("9-Find Merge Node-2", () => {
   let nodeA = new Node(1);
   let nodeB = nodeA.next = new Node(2);
   let nodeC = nodeB.next = new Node(3);
@@ -171,7 +171,7 @@ test("6-Find Merge Node-2", () => {
   expect(util.findMergeNode(nodeA, nodeE)).toBe(1);
 });
 
-test("7-Sorted Insert Data Control", () => {
+test("10-Sorted Insert Data Control", () => {
   let nodeA = new DoublyLinkedListNode(0);
   let nodeB = nodeA.next = new DoublyLinkedListNode(3);
   let nodeC = nodeB.next = new DoublyLinkedListNode(5);
@@ -190,7 +190,7 @@ test("7-Sorted Insert Data Control", () => {
   expect(nodeB.next.data).toEqual(4);
 });
 
-test("7-Sorted Insert Data Control", () => {
+test("11-Sorted Insert Data Control", () => {
   let nodeA = new DoublyLinkedListNode(1);
   let nodeB = nodeA.next = new DoublyLinkedListNode(2);
   let nodeC = nodeB.next = new DoublyLinkedListNode(3);
@@ -205,4 +205,24 @@ test("7-Sorted Insert Data Control", () => {
   ll1.sortedInsert(4);
   expect(nodeC.next.data).toEqual(4);
   expect(ll1.length).toEqual(4);
+});
+
+test("12-Reverse Doubly Linked List", () => {
+  let nodeA = new DoublyLinkedListNode(1);
+  let nodeB = nodeA.next = new DoublyLinkedListNode(2);
+  let nodeC = nodeB.next = new DoublyLinkedListNode(3);
+  let nodeD = nodeC.next = new DoublyLinkedListNode(7);
+
+  // 0 -> 3 -> 5 -> 7
+
+  nodeB.prev = nodeA;
+  nodeC.prev = nodeB;
+  nodeD.prev = nodeC;
+
+  let result = util.reverseDoublyLinkedList(nodeA);
+
+  expect(nodeA.next).toEqual(null);
+  expect(nodeC.next.data).toEqual(nodeB.data);
+  expect(nodeD.next).toEqual(nodeC);
+  expect(result).toEqual(nodeD);
 });
