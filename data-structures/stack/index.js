@@ -1,5 +1,5 @@
 const Util = require("./util");
-const Node = require("./node");
+const { Node, DoublyLinkedListNode } = require("./node");
 
 class LinkedList {
   constructor() {
@@ -281,6 +281,52 @@ class LinkedList {
     }
 
     return 0;
+  }
+
+  // https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list/problem
+  sortedInsert(data) {
+    let head = this.head;
+    let newNode = new DoublyLinkedListNode(data);
+
+    if (!head) {
+      this.head = newNode;
+      return this.head;
+    }
+
+    if (data <= head.data) {
+      let temp = head;
+      head = newNode;
+      head.next = temp;
+      temp.prev = head;
+
+      return head;
+    }
+
+    let node = head;
+    while (node) {
+      if (!node.next) {
+        node.next = newNode;
+        newNode.prev = node;
+        this.tail = newNode;
+        this.length += 1;
+  
+        return head;
+      }
+
+      if(data <= node.next.data) {
+        let temp = node.next;
+
+        node.next = newNode;
+        newNode.prev = node;
+        newNode.next = temp;
+        temp.prev = newNode;
+        this.length += 1;
+
+        return head;
+      }
+
+      node = node.next;
+    }
   }
 }
 
