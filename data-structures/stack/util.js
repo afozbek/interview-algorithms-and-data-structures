@@ -1,4 +1,4 @@
-const Node = require("./node");
+const { Node } = require("./node");
 
 class Util {
   // https://www.hackerrank.com/challenges/compare-two-linked-lists/problem

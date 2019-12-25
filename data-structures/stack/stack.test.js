@@ -1,6 +1,6 @@
 const LinkedList = require(".")
 const Util = require("./util")
-const Node = require("./node");
+const { Node, DoublyLinkedListNode } = require("./node");
 
 const util = new Util();
 
@@ -169,4 +169,40 @@ test("6-Find Merge Node-2", () => {
   nodeG.next = nodeA;
 
   expect(util.findMergeNode(nodeA, nodeE)).toBe(1);
+});
+
+test("7-Sorted Insert Data Control", () => {
+  let nodeA = new DoublyLinkedListNode(0);
+  let nodeB = nodeA.next = new DoublyLinkedListNode(3);
+  let nodeC = nodeB.next = new DoublyLinkedListNode(5);
+  let nodeD = nodeC.next = new DoublyLinkedListNode(7);
+
+  // 0 -> 3 -> 5 -> 7
+
+  nodeB.prev = nodeA;
+  nodeC.prev = nodeB;
+  nodeD.prev = nodeC;
+
+  ll1.insertMultipleNodes(nodeA, nodeB, nodeC, nodeD);
+
+  ll1.sortedInsert(4);
+  expect(nodeC.prev.data).toEqual(4);
+  expect(nodeB.next.data).toEqual(4);
+});
+
+test("7-Sorted Insert Data Control", () => {
+  let nodeA = new DoublyLinkedListNode(1);
+  let nodeB = nodeA.next = new DoublyLinkedListNode(2);
+  let nodeC = nodeB.next = new DoublyLinkedListNode(3);
+
+  // 0 -> 3 -> 5 -> 7
+
+  nodeB.prev = nodeA;
+  nodeC.prev = nodeB;
+
+  ll1.insertMultipleNodes(nodeA, nodeB, nodeC);
+
+  ll1.sortedInsert(4);
+  expect(nodeC.next.data).toEqual(4);
+  expect(ll1.length).toEqual(4);
 });

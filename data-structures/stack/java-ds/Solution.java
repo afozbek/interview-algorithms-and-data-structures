@@ -69,7 +69,6 @@ public class Solution {
 
         HashMap<SinglyLinkedListNode,Integer> visitedNodes = new HashMap<SinglyLinkedListNode, Integer>();
 
-
         while(head1 != null) {
             visitedNodes.put(head1, head1.data);
 
