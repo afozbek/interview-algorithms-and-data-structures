@@ -156,8 +156,12 @@ class LinkedList {
       let node = head.next;
       let prev = head;
 
-      while (node.next !== null) {
+      while (!node) {
         if (currentPos === position) {
+          if(position === this.length - 1){
+            this.tail = prev;
+          }
+
           prev.next = node.next;
           this.length = this.length - 1;
 
@@ -190,26 +194,20 @@ class LinkedList {
   // https://www.hackerrank.com/challenges/reverse-a-linked-list/problem
   reverse() {
     let head = this.head;
-    if (!head) {
+    if (!head || !head.next) {
       return head;
     }
 
     let node = head.next;
     let prev = head;
     prev.next = null;
+    this.tail = prev;
 
-    if (!node) {
-      return head;
-    }
-
-    else {
-      let temp;
-      while (node) {
-        temp = node;
-        node = node.next;
-        temp.next = prev;
-        prev = temp;
-      }
+    while (node) {
+      let temp = node;
+      node = node.next;
+      temp.next = prev;
+      prev = temp;
     }
 
     return prev;
@@ -253,9 +251,10 @@ class LinkedList {
       if (values[data]) {
         prevNode.next = node.next;
         this.length--;
-      } else {
-        values[data] = true;
+      }
 
+      else {
+        values[data] = true;
         prevNode = node;
       }
 
