@@ -329,7 +329,6 @@ class LinkedList {
   }
 }
 
-
 function main() {
   const util = new Util();
 
@@ -350,7 +349,7 @@ function main() {
   ll1.insertMultipleNodes(nodeA, nodeB, nodeC, nodeD);
 
 
-  console.log(ll1.sortedInsert(4));
+  util.reverseDoublyLinkedList(nodeA);
 }
 
 main();

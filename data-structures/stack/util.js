@@ -79,6 +79,27 @@ class Util {
 
     return 0;
   }
+
+  // https://www.hackerrank.com/challenges/reverse-a-doubly-linked-list/problem
+  reverseDoublyLinkedList(head) {
+    if(!head || !head.next) return head;
+
+    let node = head;
+
+    while(node) {
+      let tempNode = node.next;
+      node.next = node.prev;
+      node.prev = tempNode;
+
+      if(!tempNode) {
+        return node;
+      }
+
+      node = tempNode;
+    }
+
+    return node;
+  }
 }
 
 module.exports = Util;
