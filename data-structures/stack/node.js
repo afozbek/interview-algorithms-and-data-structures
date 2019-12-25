@@ -5,4 +5,12 @@ class Node {
   }
 }
 
-module.exports = Node;
+class DoublyLinkedListNode {
+  constructor(nodeData) {
+    this.data = nodeData;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+module.exports = { Node, DoublyLinkedListNode };
