@@ -56,6 +56,29 @@ class Util {
       return head2;
     }
   }
+
+  // https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list/problem
+  findMergeNode(head1, head2) {
+    let visitedNodes = new Map();
+
+    while(head1) {
+      visitedNodes.set(head1, head1.data);
+
+      head1 = head1.next;
+    }
+
+    while(head2) {
+      if(visitedNodes.has(head2)) {
+        return head2.data;
+      } else {
+        visitedNodes.set(head2);
+      }
+
+      head2 = head2.next;
+    }
+
+    return 0;
+  }
 }
 
 module.exports = Util;

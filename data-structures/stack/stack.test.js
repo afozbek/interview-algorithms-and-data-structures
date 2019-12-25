@@ -143,3 +143,30 @@ test("5-Cycle Testing-Truthy", () => {
 
   expect(ll1.hasCycle()).toBe(1);
 });
+
+test("6-Find Merge Node-1", () => {
+  let nodeA = new Node(0);
+  let nodeB = nodeA.next = new Node(3);
+  let nodeC = nodeB.next = new Node(5);
+  let nodeD = nodeC.next = new Node(7);
+
+  let nodeE = new Node(8);
+  let nodeF = nodeE.next = new Node(12);
+  let nodeG = nodeF.next = new Node(-5);
+  nodeG.next = nodeC;
+
+  expect(util.findMergeNode(nodeA, nodeE)).toBe(5);
+});
+
+test("6-Find Merge Node-2", () => {
+  let nodeA = new Node(1);
+  let nodeB = nodeA.next = new Node(2);
+  let nodeC = nodeB.next = new Node(3);
+
+  let nodeE = new Node(8);
+  let nodeF = nodeE.next = new Node(7);
+  let nodeG = nodeF.next = new Node(8);
+  nodeG.next = nodeA;
+
+  expect(util.findMergeNode(nodeA, nodeE)).toBe(1);
+});

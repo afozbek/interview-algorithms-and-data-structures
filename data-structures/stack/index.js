@@ -267,15 +267,18 @@ function main() {
   const ll2 = new LinkedList();
 
   let nodeA = new Node(0);
-  let nodeB = nodeA.next = new Node(1);
-  let nodeC = nodeB.next = new Node(3);
-  let nodeD = nodeC.next = new Node(5);
+  let nodeB = nodeA.next = new Node(3);
+  let nodeC = nodeB.next = new Node(5);
+  let nodeD = nodeC.next = new Node(7);
 
-  nodeD.next = nodeA;
+  let nodeE = new Node(8);
+  let nodeF = nodeE.next = new Node(12);
+  let nodeG = nodeF.next = new Node(-5);
+  nodeG.next = nodeC;
 
-  ll1.head = nodeA;
 
-  console.log(ll1.hasCycle());
+
+  console.log(util.findMergePoint(nodeA, nodeE));
 }
 
 main();
