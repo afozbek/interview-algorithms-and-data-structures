@@ -111,6 +111,30 @@ class LinkedList {
     return this.head;
   }
 
+  // Insert multiple nodes
+  insertMultipleNodes(...nodes) {
+    if(!Array.isArray(nodes)) {
+      return this.head;
+    }
+    console.log(nodes);
+    nodes.forEach(node => {
+      if (node instanceof Node || node instanceof DoublyLinkedListNode) {
+        if(!this.head) {
+          this.head = node;
+          this.tail = node;
+        } else {
+          this.tail.next = node;
+          node.prev = this.tail;
+          this.tail = node;
+        }
+
+        this.length += 1;
+      }
+    });
+
+    return this.head;
+  }
+
   // https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem
   deleteNode(position) {
     let head = this.head;
@@ -219,6 +243,7 @@ class LinkedList {
   removeDuplicates() {
     let node = this.head;
     let values = {};
+
     if (!node) return null;
 
     let prevNode = null;
@@ -266,19 +291,21 @@ function main() {
   const ll1 = new LinkedList();
   const ll2 = new LinkedList();
 
-  let nodeA = new Node(0);
-  let nodeB = nodeA.next = new Node(3);
-  let nodeC = nodeB.next = new Node(5);
-  let nodeD = nodeC.next = new Node(7);
+  let nodeA = new DoublyLinkedListNode(0);
+  let nodeB = nodeA.next = new DoublyLinkedListNode(3);
+  let nodeC = nodeB.next = new DoublyLinkedListNode(5);
+  let nodeD = nodeC.next = new DoublyLinkedListNode(7);
 
-  let nodeE = new Node(8);
-  let nodeF = nodeE.next = new Node(12);
-  let nodeG = nodeF.next = new Node(-5);
-  nodeG.next = nodeC;
+  // 0 -> 3 -> 5 -> 7
+
+  nodeB.prev = nodeA;
+  nodeC.prev = nodeB;
+  nodeD.prev = nodeC;
+
+  ll1.insertMultipleNodes(nodeA, nodeB, nodeC, nodeD);
 
 
-
-  console.log(util.findMergePoint(nodeA, nodeE));
+  console.log(ll1.sortedInsert(4));
 }
 
 main();
