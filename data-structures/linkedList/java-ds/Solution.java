@@ -89,17 +89,17 @@ public class Solution {
     }
 
     public static void main(String[] args) throws IOException {
-      SinglyLinkedListNode nodeA = new SinglyLinkedListNode(0);
-      SinglyLinkedListNode nodeB = nodeA.next = new SinglyLinkedListNode(3);
-      SinglyLinkedListNode nodeC = nodeB.next = new SinglyLinkedListNode(5);
-      SinglyLinkedListNode nodeD = nodeC.next = new SinglyLinkedListNode(7);
+        SinglyLinkedListNode nodeA = new SinglyLinkedListNode(0);
+        SinglyLinkedListNode nodeB = nodeA.next = new SinglyLinkedListNode(3);
+        SinglyLinkedListNode nodeC = nodeB.next = new SinglyLinkedListNode(5);
+        SinglyLinkedListNode nodeD = nodeC.next = new SinglyLinkedListNode(7);
 
-      SinglyLinkedListNode nodeE = new SinglyLinkedListNode(7);
-      SinglyLinkedListNode nodeF = nodeE.next = new SinglyLinkedListNode(8);
-      SinglyLinkedListNode nodeG = nodeF.next = new SinglyLinkedListNode(10);
-      nodeG.next = nodeD;
+        SinglyLinkedListNode nodeE = new SinglyLinkedListNode(7);
+        SinglyLinkedListNode nodeF = nodeE.next = new SinglyLinkedListNode(8);
+        SinglyLinkedListNode nodeG = nodeF.next = new SinglyLinkedListNode(10);
+        nodeG.next = nodeD;
 
-      int result = Solution.findMergeNode(nodeA, nodeE);
-      System.out.println(result);
-  }
+        int result = Solution.findMergeNode(nodeA, nodeE);
+        System.out.println(result);
+    }
 }
